@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block content %}
+
+  
+
+
+<!-- Contact  -->
+<section id="contact" class="p-5 mt-5 bg-black " style="background-image: url('{% static "images/map.png" %}')">
+  <div class="container" >
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="text-uppercase section-heading  text-info fw-bold ">Contact Us</h2>
+     
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="position-relative" id="myForm" method="POST" action=" {% url  'contact'  %} " >
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <input class="form-control py-2 " name="name" type="text" id="name" placeholder="Your Name *" required=""><small
+                  class="form-text text-danger flex-grow-1 help-block lead"></small>
+              </div>
+              <div class="form-group mb-3">
+                <input class="form-control py-2" type="email" id="email" name="email" placeholder="Your Email *" required=""><small
+                  class="form-text text-danger help-block lead"></small>
+              </div>
+              <div class="form-group mb-3">
+                <input class="form-control py-2" name="phone" type="tel" placeholder="Your Phone *" required=""><small
+                  class="form-text text-danger help-block lead"></small>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group mb-3">
+                <textarea class="form-control" name="message" id="message" placeholder="Your Message *" required=""></textarea><small
+                  class="form-text text-danger help-block lead"></small>
+              </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-lg-12 text-center">
+              <div id="success"></div>
+              <button class="btn btn-outline-info   text-uppercase" id="sendMessageButton" type="submit">
+                Send Message
+              </button>
+            </div>
+          </div>
+           {% for message in messages  %}
+           <h3 class="text-danger position-absolute" > {{message}} </h3>
+           {% endfor %}
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+{% endblock content %}

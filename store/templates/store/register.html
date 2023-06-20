@@ -1,0 +1,44 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<body  style="background-image: url('{% static  "images/sky.jpg" %}');">
+  <div class="d-flex p-5 m-5   justify-content-center align-items-center">
+<form class=" auth-form w-sm-50 mx-auto m-5 p-5 shadow " method="POST"  action=" {% url 'register' %} ">
+  {% csrf_token %}
+  <input
+    type="text"
+    class="form-control form__login-input border-right-0 border-left-0 border-top-0 mb-3 "
+    name="username"
+    placeholder="Enter Username"
+    required
+  />
+
+
+  <input
+    type="email"
+    class="form-control form__login-input border-right-0 border-left-0 border-top-0 mb-3"
+    name="email"
+    placeholder="Enter Email"
+    required
+  />
+
+  <input
+    type="password"
+    class="form-control form__login-input border-right-0 border-left-0 border-top-0 mb-3"
+    name="password"
+    placeholder="Enter Password"
+    required
+  />
+  <input
+    type="password"
+    class="form-control form__login-input border-right-0 border-left-0 border-top-0 mb-3"
+    name="password2"
+    placeholder="Confirm Password"
+    required
+  />
+
+  <button type="submit" class="btn btn-info rounded-end"> Sign Up </button>
+</form>
+
+  </div>
+
+</body>
+{% endblock content %}

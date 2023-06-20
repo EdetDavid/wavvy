@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load static %}
+{% load embed_video_tags %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <style>
+    @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap);
+
+    body {
+
+      background-repeat: repeat-x;
+      background-size: cover;
+      font-family: Poppins, sans-serif;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 400;
+      line-height: 1.58;
+      letter-spacing: -0.003em;
+      font-size: 20px;
+      user-select: none;
+      scroll-behavior: smooth;
+
+    }
+
+    #footer-icon:hover {
+      transform: translateY(-5px);
+      transition: 0.5s all ease;
+      padding: 0;
+      margin: 0;
+    }
+
+    #footer-icon {
+      font-size: 42px;
+    }
+
+
+    #preloader {
+      background-color: #000;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-size: 15% !important;
+      height: 100vh !important;
+      width: 100vw !important;
+      position: fixed;
+      z-index: 100 !important;
+    }
+
+
+
+    @media (max-width: 768px) {
+
+      .box {
+        width: 300px !important;
+        margin: 0 auto !important;
+      }
+
+      footer {
+        font-size: medium !important;
+      }
+
+      .dropdown-menu{
+        width: 20px !important;
+      }
+
+    }
+
+    #footer-icon:hover {
+      transform: translateY(-5px);
+      transition: 0.5s all ease;
+      padding: 0;
+      margin: 0;
+    }
+
+    #footer-icon {
+      font-size: 42px;
+    }
+
+    textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: none;
+}
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+
+
+  </style>
+</head>
+
+<center>
+  <!-- preloader -->
+  <div id="preloader" class="vh-100" style="background-image: url('{% static  "preloaders/random-circle.gif" %}');">
+  </div>
+</center>
+
+<body class="position-relative" style="background: url('{% static "images/music.jpg" %}')">
+
+  <!-- Nav -->
+  <nav id="mynav" class="navbar navbar-expand-md navbar-dark bg-black p-3 m-0 w-100">
+    <a class="navbar-brand mx-3" href="/">WavvySavvy</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item hide-nav">
+          <a id="link" class="nav-link " href=" {% url 'home' %}" aria-current="page">Home <span
+              class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item hide-nav">
+          <a id="link" class="nav-link" href=" {% url 'about' %} ">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="link" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Menu</a>
+          <div class="dropdown-menu " aria-labelledby="dropdownId">
+            <a class="dropdown-item hide-nav" href="{% url 'store' %}">Store</a>
+            <a class="dropdown-item hide-nav" href="{% url 'music' %}">Music</a>
+            <a class="dropdown-item  hide-nav" href="{% url 'events' %}">Events</a>
+            
+          </div>
+        </li>
+      </ul>
+      <form action=" {% url 'contact' %} " class="d-flex my-2 my-lg-0">
+
+        <button class="btn  btn-outline-light rounded-3 my-2 my-sm-0 me-3 close-nav" type="submit">
+          Contact
+        </button>
+      </form>
+    </div>
+  </nav>
+
+
+  <!-- videos -->
+  <div class="container-fluid p-5">
+    <div class="row">
+      <div class="col-10 mx-auto mt-5 text-center">
+        <h3 class="mb-5 text-white">Videos</h3>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center">
+          {% for item in videos %}
+
+          <div class="px-3 mb-5">
+            <div class="box d-flex flex-wrap">{% video item.url '426x240' %} </div>
+            <div class="d-flex justify-content-start text-white">{{ item.title }}</div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <footer class="bg-light  text-center text-lg-star text-white position-absolute bottom-0  w-100">
+    <!-- Copyright -->
+    <div class="text-center px-5 py-3 d-flex justify-content-evenly align-items-center "
+      style="background-color: rgba(0, 0, 0, 1);">
+      <p class="d-inline p-0 m-0"> © 2023 Copyright: wavvysavvy </p>
+      <a class="text-white text-decoration-none mb-4 pb-1 mx-3" href="#"> <span id="footer-icon"
+          class="fa fa-caret-up position-absolute end-0 mx-5 "></span></a>
+
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+  <script type="text/JavaScript">
+
+
+  const loader = document.getElementById("preloader");
+  const myNav = document.getElementById("mynav");
+    window.addEventListener("load", function () {
+      loader.style.display = "none";
+      myNav.classList.add("fixed-top");
+    });
+    var links = document.querySelectorAll('.hide-nav');
+
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function() {
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse.classList.contains('show')) {
+          navbarCollapse.classList.remove('show');
+        }
+      });
+    }
+
+
+    </script>
+    
+
+</body>
+
+</html>

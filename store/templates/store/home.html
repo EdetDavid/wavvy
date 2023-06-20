@@ -1,0 +1,131 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+
+<!-- Hero Section -->
+
+<header class="pt-5" >
+  <div
+    id="ImageSlider"
+    class="carousel slide "
+    data-bs-ride="carousel"
+    data-interval="4000"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#ImageSlider"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#ImageSlider"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#ImageSlider"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <!-- Item 1 -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="{% static 'images/ice3.jpg' %}"
+          class=" d-block w-100 vh-100 "
+          alt=" Img SLide 1"
+        />
+        <div class="carousel-caption flex-md-wrap-reverse  d-md-block">
+          <h2 class="text-white">
+            
+            <b class="h1 fw-bolder text-info">
+              <span class="text-danger white-shadow p-0 m-0">Fire</span>
+              <span class="text-dark white-shadow mx-2">&</span
+              ><span class="text-info black-shadow p-0 m-0">ice</span>
+            </b>
+          </h2>
+          <p class="lead text-light fst-italic black-shadow fw-bold">
+            Best Afro-Pop Music 
+          </p>
+          <a
+            class="btn btn-primary btn-xl text-uppercase btn__auth"
+            role="button"
+            href="{% url 'music' %}"
+            >View Album</a
+          >
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="carousel-item">
+        <img 
+          src="{% static 'images/shop.jpg' %}"
+          class=" d-block w-100 vh-100 "
+          alt=" Img SLide 2"
+
+        />
+        <div class="carousel-caption flex-md-wrap-reverse  d-md-block">
+          <h2 class="text-white">
+            Get your
+            <b class="h1 fw-bolder text-warning white-shadow"> Wears </b>
+          </h2>
+          <p class="lead text-white black-shadow fw-bold fst-italic">
+            whatever style you want!
+          </p>
+          <a
+            class="btn btn-warning text-white btn-xl text-uppercase 
+            btn__auth "
+            role="button"
+            href="{% url 'store' %}"
+            >Vist Store</a
+          >
+        </div>
+      </div>
+      <!-- Item 3 -->
+         
+         <div class="carousel-item">
+          <img
+            src="{% static 'images/music.jpg' %}"
+            class="  d-block w-100 vh-100 "
+            alt=" Img SLide 2"
+          />
+          <div class="carousel-caption flex-md-wrap-reverse  d-md-block">
+            <h2 class="text-white">
+              <b class="h1 fw-bolder text-secondary white-shadow"> Watch </b>
+            </h2>
+            
+            <a
+              class="btn btn-info text-white btn-xl text-uppercase 
+              btn__auth "
+              role="button"
+              href="{% url 'events' %}"
+              >Events</a
+            >
+          </div>
+        </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#ImageSlider"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#ImageSlider"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</header>
+
+{% endblock content %}

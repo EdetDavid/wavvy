@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>About</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/Banner-Heading-Image-images.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/Footer-Dark-icons.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css "
+    />
+    <link
+    rel="stylesheet"
+    href="{% static 'assets/css/styles.css' %}"
+  />
+
+   
+  </head>
+
+  
+    <!-- preloader -->
+    <div id="preloader" class="vh-100" style=" background-image: url('{% static  "preloaders/random-circle.gif" %}');">
+    </div>
+  
+      <!-- preloader delay -->
+  <div class="d-none">
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jKX1UsfI0M8" title="Youtube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jKX1UsfI0M8" title="Youtube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jKX1UsfI0M8" title="Youtube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jKX1UsfI0M8" title="Youtube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  
+
+
+  <body style="background: rgb(0, 0, 0)">
+    <!-- NAvabar  -->
+
+
+    <head>
+        
+  <nav id="mynav" class="navbar navbar-expand-md navbar-dark bg-black p-3 ">
+    <a class="navbar-brand mx-3" href="/">WavvySavvy</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item hide-nav">
+          <a id="link" class="nav-link " href=" {% url 'home' %}" aria-current="page">Home <span
+              class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item hide-nav">
+          <a id="link" class="nav-link active" href=" {% url 'about' %} ">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a id="link" class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Menu</a>
+          <div class="dropdown-menu " aria-labelledby="dropdownId">
+            <a class="dropdown-item" href="{% url 'store' %}">Store</a>
+            <a class="dropdown-item" href="{% url 'music' %}">Music</a>
+            <a class="dropdown-item" href="{% url 'events' %}">Events</a>
+            
+          </div>
+        </li>
+      </ul>
+      <form action=" {% url 'contact' %} " class="d-flex my-2 my-lg-0">
+
+        <button  class="btn  btn-outline-light rounded-3 my-2 my-sm-0 me-3 hide-nav" type="submit">
+          Contact
+        </button>
+      </form>
+    </div>
+  </nav>
+    </head>
+
+    <!-- end -->
+
+    <br><br><br>
+    
+   
+
+    <section class="py-4 py-xl-5">
+      <div class="container">
+        <div
+          class="text-white bg-dark border rounded border-0 border-light d-flex flex-column justify-content-between align-items-center flex-lg-row p-4 p-lg-5"
+          style="background: repeating-linear-gradient(155deg, black, white)"
+        >
+          <div class="text-center text-lg-start py-3 py-lg-1">
+            <h2 class="fw-bold mb-2">
+              <strong>Subscribe to our newsletter</strong>
+            </h2>
+            <p class="mb-0  text-light fs-6 text-lowercase fst-italic">To get latest update from our us.</p>
+          </div>
+          <form id="myForm"
+            class="d-flex justify-content-center flex-wrap my-2"
+            method="POST" action=" {% url 'about' %} "  
+          >
+          {% csrf_token %}
+            <div class="my-2">
+              <input
+                class="form-control"
+                type="email"
+                name="email"
+                placeholder="Your Email"
+              required/>
+            </div>
+            <div class="my-2">
+              <button
+                class="btn btn-primary ms-sm-2"
+                type="submit"
+                style="background: var(--bs-indigo); outline: none"
+              >
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    {%  for message in messages %}
+
+    <h5 class="text-danger">
+      {{ message}}
+    </h5>
+
+  {% endfor %}
+
+    
+
+    <section class="pulse animated">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="d-flex flex-wrap justify-content-start align-items-center p-5  bg-dark rounde-1">
+              <h2 class="text-left text-primary me-4 align-self-start">Bio</h2>
+              <p class="lead text-white text-wrap">
+                WavvySavvy is a New Wave Synthpop duo featuring singer &
+                keyboardist Megan Rose and singer & composer Atom Percy. Already
+                having established himself as a session player, touring
+                keyboardist, and producer for many years, Atom met Megan
+                performing her own material at shows on sleepy and rural Denman
+                Island, where both currently reside. Becoming instant friends,
+                the pair found commonality in their musical tastes and
+                songwriting approaches, and after some positeeeive songwriting
+                sessions, they christened the group Avro; a nod to the avian
+                dream of a technological future, that was swiftly halted by the
+                weight of the past. Having released their independent debut EP
+                ‘Anatomy Act’ a few years prior, Avro returned with a new album,
+                titled ‘Futuretroactivism’, in 2022. The product of over a year
+                of writing in studio, ‘Futuretroactivism’ is bristling with
+                powerful synthesized tones, galloping rhythms, and ethereal
+                vocals. Lyrically Avro merges myth and fantasy with the
+                dystopian dream of the not too distant future, seamlessly
+                combining dancefloor ecstasy with thoughtful introspections.
+                While the album gives nods towards earlier synth artists like
+                Fad Gadget, Yaz, or early Human League, the use of more modern
+                production notes, original hooks, and vocal interplay between
+                the duo makes Avro a unique outfit in the world of electronic
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="bg-light text-center text-lg-star text-white">
+      <div
+        class="text-center px-5 py-3 d-flex justify-content-evenly align-items-center"
+        style="background-color: rgba(0, 0, 0, 1)"
+      >
+        © 2023 Copyright: wavvysavvy
+        <a class="text-white text-decoration-none mb-4 pb-1 mx-3" href="#">
+          <span
+            id="footer-icon"
+            class="fa fa-caret-up fa-3x position-absolute end-0 mx-5"
+          ></span
+        ></a>
+      </div>
+    </footer>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+  </body>
+</html>
