@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap);
+
+body {
+  background-color: #f9f9f9;
+  font-family: Poppins, sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+  font-size: 20px;
+}
+
+#footer-icon:hover {
+  transform: translateY(-5px);
+  transition: 0.5s all ease;
+  padding: 0;
+  margin: 0;
+}
+
+#footer-icon {
+  font-size: 42px;
+}
+
+#preloader {
+  background-color: #000;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 15% !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  position: fixed;
+  z-index: 100 !important;
+}
+
+@media (max-width: 768px) {
+  .lead {
+    font-size: medium !important;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .dropdown-menu{
+    width: 50px;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  #footer {
+    position: relative !important;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
